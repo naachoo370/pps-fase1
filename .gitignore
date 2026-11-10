@@ -1,0 +1,57 @@
+# Secretos y entorno (NUNCA subir .env ni claves reales)
+.env
+.env.backup
+.env.production
+.env.*
+!.env.example
+
+# Dependencias
+/vendor/
+/vendor
+/node_modules/
+/node_modules
+venv/
+__pycache__/
+
+# Bases de datos locales (los datos se recrean con migraciones y seeders)
+*.sqlite
+*.sqlite-journal
+/database/database.sqlite
+
+# Cachés y artefactos
+*.log
+.DS_Store
+.phpactor.json
+.phpunit.result.cache
+/.fleet
+/.idea
+/.nova
+/.phpunit.cache
+/.vscode
+/.zed
+/auth.json
+/public/build
+/public/hot
+/public/storage
+/storage/*.key
+/storage/pail
+/storage/framework/cache/data/*
+/storage/framework/sessions/*
+/storage/framework/views/*
+/storage/logs/*
+/bootstrap/cache/*
+Homestead.json
+Homestead.yaml
+Thumbs.db
+
+# Herramientas de agentes/editor
+/AGENTS.md
+/CLAUDE.md
+/.opencode/
+/.cursor/
+/.worktrees/
+/.agents/
+/skills-lock.json
+
+# Documentos internos del grupo
+Memoria_Maktub.docx
