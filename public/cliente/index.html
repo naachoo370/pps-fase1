@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Cliente web estático de la API común de Maktub. Proyecto de Rafa, Nacho, Víctor y Daniel.">
+    <title>Maktub · Cliente de la API común</title>
+    <link rel="stylesheet" href="/cliente/styles.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="brand">
+            <span class="brand-name">Maktub</span>
+            <span class="brand-tag">Cliente API común</span>
+        </div>
+        <p class="team">Rafa · Nacho · Víctor · Daniel</p>
+    </header>
+
+    <main class="layout">
+        <section class="card" id="auth-card" aria-labelledby="auth-title">
+            <h1 id="auth-title">Tu lista privada</h1>
+            <p class="muted">
+                Registra una cuenta o inicia sesión. Cada usuario solo puede ver, crear,
+                editar y borrar <strong>sus propios elementos</strong>.
+            </p>
+
+            <div class="tabs" role="tablist" aria-label="Acceso">
+                <button class="tab is-active" id="tab-login" type="button" role="tab"
+                        aria-selected="true" aria-controls="login-form">Iniciar sesión</button>
+                <button class="tab" id="tab-register" type="button" role="tab"
+                        aria-selected="false" aria-controls="register-form">Registro</button>
+            </div>
+
+            <form class="form" id="login-form" novalidate>
+                <label for="login-username">Usuario</label>
+                <input id="login-username" name="username" type="text" autocomplete="username"
+                       maxlength="50" placeholder="rafa" required>
+
+                <label for="login-password">Contraseña</label>
+                <input id="login-password" name="password" type="password"
+                       autocomplete="current-password" maxlength="100" placeholder="Maktub-2026" required>
+
+                <button class="btn primary" type="submit">Entrar</button>
+            </form>
+
+            <form class="form is-hidden" id="register-form" novalidate>
+                <label for="register-username">Usuario</label>
+                <input id="register-username" name="username" type="text" autocomplete="username"
+                       maxlength="50" placeholder="nuevo_usuario" required>
+
+                <label for="register-password">Contraseña <span class="hint">(mínimo 8 caracteres)</span></label>
+                <input id="register-password" name="password" type="password"
+                       autocomplete="new-password" maxlength="100" placeholder="Maktub-2026" required>
+
+                <label for="register-password-repeat">Repite la contraseña</label>
+                <input id="register-password-repeat" name="password_repeat" type="password"
+                       autocomplete="new-password" maxlength="100" required>
+
+                <button class="btn primary" type="submit">Crear cuenta</button>
+            </form>
+
+            <p class="message" id="auth-message" role="status" aria-live="polite"></p>
+
+            <details class="demo">
+                <summary>Usuarios de prueba</summary>
+                <p>Contraseña para todos: <code>Maktub-2026</code></p>
+                <ul>
+                    <li><code>rafa</code> — 2 elementos</li>
+                    <li><code>nacho</code> — 2 elementos</li>
+                    <li><code>victor</code> — 2 elementos</li>
+                    <li><code>daniel</code> — 2 elementos</li>
+                </ul>
+            </details>
+        </section>
+
+        <section class="card is-hidden" id="app-card" aria-labelledby="app-title">
+            <div class="app-top">
+                <div>
+                    <h2 id="app-title">Mis elementos</h2>
+                    <p class="muted">Sesión: <strong id="current-user"></strong></p>
+                </div>
+                <button class="btn ghost" id="logout" type="button">Cerrar sesión</button>
+            </div>
+
+            <form class="form item-form" id="item-form" novalidate>
+                <input type="hidden" id="item-id" value="">
+
+                <label for="item-title">Título <span class="hint">(máx. 100 caracteres)</span></label>
+                <input id="item-title" name="title" type="text" maxlength="100" required>
+
+                <label for="item-text">Texto <span class="hint">(máx. 1000 caracteres)</span></label>
+                <textarea id="item-text" name="text" rows="3" maxlength="1000" required></textarea>
+
+                <div class="actions">
+                    <button class="btn primary" id="item-submit" type="submit">Añadir elemento</button>
+                    <button class="btn ghost is-hidden" id="item-cancel" type="button">Cancelar</button>
+                </div>
+            </form>
+
+            <p class="message" id="app-message" role="status" aria-live="polite"></p>
+
+            <ul class="items" id="items-list" aria-label="Mis elementos"></ul>
+            <p class="empty is-hidden" id="empty-state">
+                Todavía no tienes elementos. Crea el primero con el formulario de arriba.
+            </p>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>Proyecto de Puesta en Producción Segura · Maktub · PHP 8 + Laravel 12 + SQLite</p>
+        <p>Rafa · Nacho · Víctor · Daniel</p>
+    </footer>
+
+    <script src="/cliente/app.js" defer></script>
+</body>
+</html>
