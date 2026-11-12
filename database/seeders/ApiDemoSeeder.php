@@ -36,6 +36,10 @@ class ApiDemoSeeder extends Seeder
                 ['Zapatillas Maktub Street', 'Talla 43. Zapatillas blancas de edición especial.'],
                 ['Cinturón de cuero', 'Talla 95. Cinturón de cuero marrón con hebilla metálica.'],
             ],
+            'dario' => [
+                ['Mochila Maktub Urban', 'Capacidad 25L. Mochila impermeable con compartimento acolchado para portátil.'],
+                ['Gafas de sol polarizadas', 'Filtro UV400. Gafas de sol de diseño clásico con montura en pasta negra.'],
+            ],
         ];
 
         foreach ($usuarios as $username => $items) {
